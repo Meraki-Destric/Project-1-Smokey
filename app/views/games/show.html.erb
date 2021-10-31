@@ -1,29 +1,23 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Image:</strong>
-  <%= @game.image %>
+  <img src=<%= game.image %> style="width:200px;height:auto;">
 </p>
-
 <p>
   <strong>Name:</strong>
   <%= @game.name %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @game.description %>
 </p>
-
 <p>
   <strong>Rating:</strong>
   <%= @game.rating %>
 </p>
-
 <p>
   <strong>Price:</strong>
   <%= @game.price %>
 </p>
-
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
