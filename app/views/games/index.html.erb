@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Games</h1>
+  <style>
+    td {
+      text-align: center;
+    }
+  </style>
+  <table>
+    <thead>
+    </thead>
+  </div>
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <div class="card">
+          <div class="card-header">
+            <img src=<%= game.image %> style="width:200px;height:auto;">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= game.name %></h5>
+            <p class="card-text">Rating: <%= game.rating %></p>
+            <%if game.price == 0%>
+              <p class="card-text">Price: Free to play</p>
+            <% else %>
+              <p class="card-text">Price: $<%= game.price %></p>
+            <% end  %>
+            <p class="card-text price"><%= game.created_at %></p>
+            <a href="#" class="btn btn-primary"><%= link_to 'Show', game %></a>
+          </div>
+        </div>
+        <%if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_game_path(game) %></td>
+          <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Game' , new_game_path, class:"btn btn-dark" %>
